@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -6,8 +7,19 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Profile Photo */}
+          <div className="w-64 h-64 mx-auto mb-8 rounded-full overflow-hidden bg-gray-200 shadow-lg">
+            <Image 
+              src="/images/taylor-anderson-profile.jpg" 
+              alt="Taylor Anderson"
+              width={256}
+              height={256}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            iOS Developer
+            iOS Engineer
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Creating beautiful, user-focused apps with modern Swift and SwiftUI. 
