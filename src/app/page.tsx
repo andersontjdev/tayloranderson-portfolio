@@ -80,10 +80,16 @@ export default function Home() {
                   Learn more →
                 </Link>
               </div>
-              <div className="bg-gray-200 rounded-xl h-64 flex items-center justify-center">
-                <span className="text-gray-500">
-                  App Screenshot Placeholder
-                </span>
+              <div className="flex justify-center">
+                <div className="max-w-sm w-full">
+                  <Image
+                    src="/images/cocktail-codex-launch.jpg"
+                    alt="Cocktail Codex - Welcome to Cocktail Codex Brandy 2.0"
+                    width={400}
+                    height={400}
+                    className="w-full h-auto rounded-xl shadow-lg"
+                  />
+                </div>
               </div>
             </div>
           </div>
