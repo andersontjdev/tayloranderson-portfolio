@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Cocktail Codex - Cocktail Recipe App for iPhone and iPad",
+  description:
+    "Cocktail Codex is a SwiftUI cocktail app for iPhone and iPad. Track your bar, see what you can make right now, rate every drink, and discover your palate.",
+  openGraph: {
+    title: "Cocktail Codex - Cocktail Recipe App for iPhone and iPad",
+    description:
+      "Track your bar, see what you can make right now, rate every drink, and discover your palate.",
+    type: "website",
+  },
+};
 
 interface Feature {
   icon: string;
@@ -12,13 +25,37 @@ const features: Feature[] = [
     icon: "🔍",
     title: "Smart Search",
     description:
-      "Search by cocktail name, ingredients, or flavor profiles with intelligent filtering.",
+      "Search by cocktail name, ingredient, or flavor category and get results instantly.",
   },
   {
-    icon: "❤️",
-    title: "Favorites",
+    icon: "🍸",
+    title: "My Bar",
     description:
-      "Save your favorite cocktails for quick access with a simple tap.",
+      "Track the bottles you own and see every cocktail you can make right now, plus the ones you are one ingredient away from.",
+  },
+  {
+    icon: "⭐",
+    title: "Ratings & Notes",
+    description:
+      "Rate any cocktail with a tap, and add private tasting notes to build your own review journal.",
+  },
+  {
+    icon: "📊",
+    title: "Your Palate",
+    description:
+      "Insights drawn from the cocktails you have rated, from your rating spread to your most explored spirit.",
+  },
+  {
+    icon: "🗂️",
+    title: "Collections",
+    description:
+      "Save favorites and build your own collections for any occasion.",
+  },
+  {
+    icon: "☁️",
+    title: "iCloud Sync",
+    description:
+      "Favorites, ratings, collections, and My Bar stay in step across your iPhone and iPad.",
   },
   {
     icon: "📏",
@@ -27,32 +64,44 @@ const features: Feature[] = [
       "Switch between metric and imperial measurements with automatic conversion.",
   },
   {
+    icon: "🌙",
+    title: "Dark Mode",
+    description:
+      "A gorgeous dark appearance that is easy on the eyes for late-night mixing.",
+  },
+  {
     icon: "🎨",
     title: "Beautiful Design",
     description:
-      "Modern SwiftUI interface that works perfectly on iPhone and iPad.",
+      "A modern SwiftUI interface with layouts built for both iPhone and iPad.",
   },
-  {
-    icon: "📱",
-    title: "Responsive",
-    description:
-      "Optimized layouts for all device sizes with seamless navigation.",
-  },
-  {
-    icon: "⚡",
-    title: "Fast & Reliable",
-    description:
-      "Built with Swift 6 and modern concurrency for optimal performance.",
-  },
+];
+
+const freeFeatures: string[] = [
+  "The full recipe library, search, and flavor categories",
+  "Favorites and star ratings",
+  "Metric and imperial conversion",
+  "My Bar for up to 5 ingredients",
+  "Up to 3 custom collections",
+  "iCloud sync and dark mode",
+];
+
+const proFeatures: string[] = [
+  "My Bar with unlimited ingredients",
+  "Unlimited custom collections",
+  "Private tasting notes on any cocktail",
+  "Your Palate insights from your ratings",
 ];
 
 const techStack: string[] = [
   "Swift 6",
   "SwiftUI",
   "CoreData",
-  "Firebase",
+  "CloudKit",
+  "StoreKit 2",
   "Combine",
-  "XCTest",
+  "Firebase",
+  "Swift Testing",
   "Crashlytics",
   "Analytics",
 ];
@@ -68,9 +117,9 @@ export default function CocktailCodex() {
               Cocktail Codex
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              A modern SwiftUI cocktail recipe app featuring smart search,
-              favorites, measurement conversion, and a beautiful, responsive
-              design.
+              A modern SwiftUI cocktail companion for iPhone and iPad. Track the
+              bottles you own, see what you can make right now, rate and
+              remember every drink, and discover your palate.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -106,208 +155,223 @@ export default function CocktailCodex() {
           <h2 className="text-4xl font-bold text-gray-900 mb-16 text-center">
             Discover Cocktails Like Never Before
           </h2>
-          
-          {/* Discover & Recipe Cards */}
+
+          {/* Discover & Search */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div>
               <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Discover new cocktails and browse classic to modern creations
+                Discover classic and modern cocktails, and search by name,
+                ingredient, or category
               </h3>
               <p className="text-gray-600 mb-6">
-                Explore our curated collection of cocktails with beautiful recipe cards 
-                and easy-to-follow instructions. Each recipe includes detailed descriptions 
-                and flavor profiles to help you find the perfect drink.
+                Explore a curated collection with beautiful recipe cards and a
+                new Cocktail of the Day. Smart search finds exactly what you are
+                after, whether that is a drink by name, everything you can make
+                with gin, or something sweet, strong, or refreshing.
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">
-                  Daily Featured
+                  Cocktail of the Day
                 </span>
                 <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">
-                  Recipe Cards
-                </span>
-                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">
-                  Flavor Tags
-                </span>
-              </div>
-            </div>
-            <div className="flex justify-center space-x-4">
-              <div className="max-w-xs">
-                <Image
-                  src="/images/screenshots/discover-whiskey.jpg"
-                  alt="Cocktail Codex Discover Screen with Whiskey Sour"
-                  width={300}
-                  height={600}
-                  className="w-full h-auto rounded-xl shadow-lg"
-                />
-              </div>
-              <div className="max-w-xs">
-                <Image
-                  src="/images/screenshots/margarita-recipe.jpg"
-                  alt="Margarita Recipe with Ingredients"
-                  width={300}
-                  height={600}
-                  className="w-full h-auto rounded-xl shadow-lg"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Smart Search */}
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <div className="md:order-2">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Smart search across cocktails, ingredients, and categories
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Find exactly what you&apos;re looking for with our intelligent search. 
-                Filter by cocktail names, specific ingredients, or browse by categories. 
-                Perfect for finding drinks based on what you have at home.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                  Smart Filters
-                </span>
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
                   Ingredient Search
                 </span>
-                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                  Quick Results
-                </span>
-              </div>
-            </div>
-            <div className="md:order-1 flex justify-center">
-              <div className="max-w-xs">
-                <Image
-                  src="/images/screenshots/search-results.jpg"
-                  alt="Smart Search Results for Vodka Cocktails"
-                  width={300}
-                  height={600}
-                  className="w-full h-auto rounded-xl shadow-lg"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Measurements & Featured */}
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Metric and Imperial measurements available
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Switch seamlessly between metric and imperial measurements with 
-                automatic conversion. Whether you prefer milliliters or ounces, 
-                the app adapts to your preference instantly.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-                  Auto Convert
-                </span>
-                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-                  Global Units
-                </span>
-                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-                  Precise Ratios
+                <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">
+                  Flavor Categories
                 </span>
               </div>
             </div>
             <div className="flex justify-center space-x-4">
               <div className="max-w-xs">
                 <Image
-                  src="/images/screenshots/measurements.jpg"
-                  alt="Recipe with Metric and Imperial Measurements"
-                  width={300}
-                  height={600}
+                  src="/images/screenshots/discover.jpg"
+                  alt="Cocktail Codex Discover screen with the Cocktail of the Day"
+                  width={414}
+                  height={900}
                   className="w-full h-auto rounded-xl shadow-lg"
                 />
               </div>
               <div className="max-w-xs">
                 <Image
-                  src="/images/screenshots/featured-cocktails.jpg"
-                  alt="Curated Featured Cocktails List"
-                  width={300}
-                  height={600}
+                  src="/images/screenshots/search.jpg"
+                  alt="Search results for gin cocktails"
+                  width={414}
+                  height={900}
                   className="w-full h-auto rounded-xl shadow-lg"
                 />
               </div>
             </div>
           </div>
 
-          {/* Dark Mode & Favorites */}
+          {/* My Bar & Make Now */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="md:order-2">
               <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Curate your own cocktail collection with one tap
+                Mix with what you have
               </h3>
               <p className="text-gray-600 mb-6">
-                Save your favorite cocktails for quick access and enjoy a gorgeous 
-                dark appearance for night-time mixing. Build your personal collection 
-                and access it anytime, anywhere.
+                Tick off the spirits, liqueurs, and mixers you own and My Bar
+                shows every cocktail you can make right now, plus the ones you
+                are just one ingredient away from. Start with up to 5
+                ingredients for free, or track your whole bar with Pro.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
-                  One-Tap Save
+                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                  Make Now
                 </span>
-                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
-                  Dark Mode
+                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                  One Ingredient Away
                 </span>
-                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
-                  Quick Access
+                <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                  Assume the Basics
                 </span>
               </div>
             </div>
             <div className="md:order-1 flex justify-center space-x-4">
               <div className="max-w-xs">
                 <Image
-                  src="/images/screenshots/dark-mode.jpg"
-                  alt="Dark Mode Interface"
-                  width={300}
-                  height={600}
+                  src="/images/screenshots/my-bar.jpg"
+                  alt="My Bar showing owned ingredients and cocktails you can make now"
+                  width={414}
+                  height={900}
                   className="w-full h-auto rounded-xl shadow-lg"
                 />
               </div>
               <div className="max-w-xs">
                 <Image
-                  src="/images/screenshots/favorites.jpg"
-                  alt="Favorites Collection Grid"
-                  width={300}
-                  height={600}
+                  src="/images/screenshots/make-now.jpg"
+                  alt="Make Now list of cocktails you can make with your bar"
+                  width={414}
+                  height={900}
                   className="w-full h-auto rounded-xl shadow-lg"
                 />
               </div>
             </div>
           </div>
 
-          {/* Categories */}
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Ingredient checks & measurements */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div>
               <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Browse flavor categories to find your perfect cocktail
+                Know exactly what you are missing
               </h3>
               <p className="text-gray-600 mb-6">
-                Explore cocktails by flavor profiles including Strong, Sweet, Bitter, 
-                Fruity, Creamy, and Sour. Each category is beautifully illustrated 
-                to help you discover new drinks that match your taste preferences.
+                Every recipe is checked against your bar, with a tick beside each
+                ingredient you own and a one-tap add for anything you are
+                missing. Step-by-step instructions and automatic metric or
+                imperial conversion keep you mixing with confidence.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">
-                  Flavor Profiles
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                  Ingredient Checks
                 </span>
-                <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">
-                  Visual Browse
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                  Metric &amp; Imperial
                 </span>
-                <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">
-                  Taste Match
+                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                  Step-by-Step Method
                 </span>
               </div>
             </div>
             <div className="flex justify-center">
               <div className="max-w-xs">
                 <Image
-                  src="/images/screenshots/categories.jpg"
-                  alt="Flavor Categories Grid"
-                  width={300}
-                  height={600}
+                  src="/images/screenshots/ingredient-check.jpg"
+                  alt="Espresso Martini recipe with ingredients checked against My Bar"
+                  width={414}
+                  height={692}
+                  className="w-full h-auto rounded-xl shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Ratings & Your Palate */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div className="md:order-2">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                Rate every cocktail and discover your palate
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Rate any cocktail with a tap, free. With Pro you can also keep
+                private tasting notes, and see Your Palate: insights drawn from
+                everything you have rated, from your rating spread to your most
+                explored spirit.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
+                  Free Star Ratings
+                </span>
+                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
+                  Tasting Notes (Pro)
+                </span>
+                <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
+                  Your Palate (Pro)
+                </span>
+              </div>
+            </div>
+            <div className="md:order-1 flex justify-center space-x-4">
+              <div className="max-w-xs">
+                <Image
+                  src="/images/screenshots/reviews.jpg"
+                  alt="Reviews list with star ratings and tasting notes"
+                  width={414}
+                  height={900}
+                  className="w-full h-auto rounded-xl shadow-lg"
+                />
+              </div>
+              <div className="max-w-xs">
+                <Image
+                  src="/images/screenshots/your-palate.jpg"
+                  alt="Your Palate insights with rating spread and most explored spirit"
+                  width={414}
+                  height={900}
+                  className="w-full h-auto rounded-xl shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Collections, sync & dark mode */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                Collections, iCloud sync, and a gorgeous dark mode
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Save your favorites and build your own collections for any
+                occasion, with three free and unlimited with Pro. iCloud keeps
+                everything in step across your iPhone and iPad, and dark mode
+                makes late-night mixing easy on the eyes.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">
+                  Custom Collections
+                </span>
+                <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">
+                  iCloud Sync
+                </span>
+                <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">
+                  Dark Mode
+                </span>
+              </div>
+            </div>
+            <div className="flex justify-center space-x-4">
+              <div className="max-w-xs">
+                <Image
+                  src="/images/screenshots/dark-discover.jpg"
+                  alt="Discover screen in dark mode"
+                  width={414}
+                  height={900}
+                  className="w-full h-auto rounded-xl shadow-lg"
+                />
+              </div>
+              <div className="max-w-xs">
+                <Image
+                  src="/images/screenshots/dark-my-bar.jpg"
+                  alt="My Bar in dark mode"
+                  width={414}
+                  height={900}
                   className="w-full h-auto rounded-xl shadow-lg"
                 />
               </div>
@@ -316,8 +380,50 @@ export default function CocktailCodex() {
         </div>
       </section>
 
+      {/* Free & Pro Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+            Free to explore, Pro to go deeper
+          </h2>
+          <p className="text-gray-600 mb-12 text-center max-w-2xl mx-auto">
+            Cocktail Codex is free to download. Cocktail Codex Pro is available
+            as a monthly or annual subscription, or a one-time Lifetime
+            purchase.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-sm">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Free</h3>
+              <ul className="text-gray-600 space-y-3">
+                {freeFeatures.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-white rounded-2xl p-8 shadow-sm border-2 border-orange-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Cocktail Codex Pro
+              </h3>
+              <ul className="text-gray-600 space-y-3">
+                {proFeatures.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <p className="text-sm text-gray-500 mt-8 text-center max-w-2xl mx-auto">
+            Prices are shown in the App Store in your local currency.
+            Subscriptions renew automatically unless cancelled at least 24 hours
+            before the end of the current period, and can be managed in your
+            Apple Account settings.
+          </p>
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-16 text-center">
             Features
@@ -325,7 +431,7 @@ export default function CocktailCodex() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-sm">
+              <div key={index} className="bg-gray-50 rounded-2xl p-8 shadow-sm">
                 <div className="bg-orange-100 rounded-xl w-12 h-12 flex items-center justify-center mb-6">
                   <span className="text-2xl">{feature.icon}</span>
                 </div>
@@ -340,7 +446,7 @@ export default function CocktailCodex() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Built with Modern iOS Technologies
@@ -358,15 +464,23 @@ export default function CocktailCodex() {
         </div>
       </section>
 
-      {/* Privacy Policy Link */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Legal Links */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-t">
+        <div className="max-w-4xl mx-auto text-center space-x-6">
           <Link
             href="/cocktailcodex/privacy"
             className="text-blue-600 hover:text-blue-700 font-medium"
           >
             Privacy Policy
           </Link>
+          <a
+            href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+            className="text-blue-600 hover:text-blue-700 font-medium"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Terms of Use
+          </a>
         </div>
       </section>
     </div>

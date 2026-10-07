@@ -17,9 +17,10 @@ export default function About() {
                 </p>
                 
                 <p className="text-gray-600 mb-6">
-                    Currently, I am focused on building Cocktail Codex, a comprehensive 
-                    cocktail recipe app that showcases modern iOS development practices 
-                    including Swift 6, SwiftUI, CoreData, and Firebase integration.
+                    Currently, I am focused on building Cocktail Codex, a comprehensive
+                    cocktail app for iPhone and iPad that showcases modern iOS development
+                    practices including Swift 6, SwiftUI, CoreData, CloudKit sync,
+                    StoreKit 2 subscriptions, and Firebase integration.
                 </p>
 
                 <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Skills & Technologies</h2>
@@ -31,6 +32,8 @@ export default function About() {
                         <li>SwiftUI</li>
                         <li>UIKit</li>
                         <li>CoreData</li>
+                        <li>CloudKit</li>
+                        <li>StoreKit 2</li>
                         <li>Combine</li>
                     </ul>
                     </div>
@@ -75,7 +78,7 @@ export default function About() {
                     </div>
                     <div>
                     <span className="text-gray-500">Current Project:</span>
-                    <span className="text-gray-900 ml-2">Cocktail Codex v2.0</span>
+                    <span className="text-gray-900 ml-2">Cocktail Codex v2.2</span>
                     </div>
                     <div>
                     <span className="text-gray-500">Experience:</span>

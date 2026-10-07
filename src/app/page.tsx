@@ -55,9 +55,10 @@ export default function Home() {
                   Cocktail Codex
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  A modern SwiftUI cocktail recipe app with smart search, 
-                  favorites, and measurement conversion. Built with Swift 6 
-                  and featuring a beautiful, responsive design.
+                  A modern SwiftUI cocktail companion for iPhone and iPad.
+                  Track your bar and see what you can make right now, rate and
+                  remember every drink, and discover your palate, with iCloud
+                  sync and optional Pro. Built with Swift 6.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
@@ -68,6 +69,12 @@ export default function Home() {
                   </span>
                   <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
                     CoreData
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    CloudKit
+                  </span>
+                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                    StoreKit 2
                   </span>
                   <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
                     Firebase
@@ -81,12 +88,12 @@ export default function Home() {
                 </Link>
               </div>
               <div className="flex justify-center">
-                <div className="max-w-sm w-full">
+                <div className="max-w-[240px] w-full">
                   <Image
-                    src="/images/cocktail-codex-launch.jpg"
-                    alt="Cocktail Codex - Welcome to Cocktail Codex Brandy 2.0"
-                    width={400}
-                    height={400}
+                    src="/images/screenshots/make-now.jpg"
+                    alt="Cocktail Codex Make Now screen showing cocktails you can make with your bar"
+                    width={414}
+                    height={900}
                     className="w-full h-auto rounded-xl shadow-lg"
                   />
                 </div>
